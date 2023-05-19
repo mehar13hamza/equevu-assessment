@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  eqeuvu-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
   eqeuvu-backend:
     build:
       context: ./backend

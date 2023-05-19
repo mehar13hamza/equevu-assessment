@@ -14,9 +14,9 @@ class ApisList(APIView):
     def get(self, request):
         # Return a list of available endpoints
         return Response({
-            0: 'candidates/',
-            1: 'candidates/registration/',
-            2: 'candidates/<int:pk>/resume/',
+            'List of all candidates': '/candidates/',
+            'Candidate Registration': '/candidates/registration/',
+            'Download candidate resume': '/candidates/<int:pk>/resume/',
         })
 
 
@@ -40,7 +40,7 @@ class CandidateRegistrationAPIView(generics.CreateAPIView):
 
 class ApplicantListAPIView(generics.ListAPIView):
     """Return the list of applicants"""
-    queryset = Candidate.objects.all().order_by('-id')
+    queryset = Candidate.objects.all().order_by('id')
     serializer_class = CandidateSerializer
 
     def get(self, request, *args, **kwargs):

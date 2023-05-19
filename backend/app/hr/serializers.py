@@ -46,11 +46,11 @@ class CandidateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Candidate
-        fields = (
+        fields = [
             'id',
             'full_name',
             'date_of_birth',
             'years_of_experience',
             'department',
             'resume'
-        )
+        ]
